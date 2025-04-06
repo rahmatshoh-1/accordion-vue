@@ -39,10 +39,7 @@ const toggleAnswer = function (id) {
 </script>
 
 <template>
-  <header class="bg-green-main h-[280px]">
-
-  </header>
-
+  <header class="bg-green-main h-[280px]"></header>
   <main class="relative mx-4">
     <div class="rounded-md absolute left-0 right-0 m-auto -top-40  z-10 bg-white shadow-2xl max-w-[600px] p-8">
       <div class="flex items-center text-green-main ">
@@ -56,9 +53,9 @@ const toggleAnswer = function (id) {
       <div v-for="question in questions" :key="question.id" class="border-t py-5 border-gray-200">
         <div class="flex gap-8 justify-between items-start cursor-pointer" @click="toggleAnswer(question.id)">
           <h2 class="sm:text-mobile-preset-2 md:text-tablet-preset-2 lg:text-desktop-preset-2 font-bold text-green-main">{{ question.question }}</h2>
-          <button class="cursor-pointer mt-3 bg-green-main rounded-full flex-none">
-            <img v-if="question.isOpen" src="/images/minus.svg" alt="" style="width: 24px; height: 24px;">
-            <img v-else src="/images/plus.svg"  alt="" style="width: 24px; height: 24px;">
+          <button :aria-label="question.isOpen ? 'Скрыть ответ' : 'Показать ответ'" class="cursor-pointer mt-3 bg-green-main rounded-full flex-none">
+            <img v-if="question.isOpen" src="/images/minus.svg" alt="Icon minus">
+            <img v-else src="/images/plus.svg"  alt="Icon Plus" >
           </button>
         </div>
         <p v-if="question.isOpen"  class="mt-5 text-green-secondary sm:text-mobile-preset-3 md:text-tablet-preset-3 lg:text-desktop-preset-3">
